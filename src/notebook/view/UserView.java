@@ -18,18 +18,18 @@ public class UserView {
         Commands com;
 
         while (true) {
-            String command = prompt("Введите команду: ");
+            String command = prompt("Enter Command: ");
             com = Commands.valueOf(command);
             if (com == Commands.EXIT) return;
             switch (com) {
                 case CREATE:
-                    String firstName = prompt("Имя: ");
-                    String lastName = prompt("Фамилия: ");
-                    String phone = prompt("Номер телефона: ");
+                    String firstName = prompt("Name: ");
+                    String lastName = prompt("Last Name: ");
+                    String phone = prompt("Phone: ");
                     userController.saveUser(new User(firstName, lastName, phone));
                     break;
                 case READ:
-                    String id = prompt("Идентификатор пользователя: ");
+                    String id = prompt("Id: ");
                     try {
                         User user = userController.readUser(Long.parseLong(id));
                         System.out.println(user);
@@ -45,10 +45,10 @@ public class UserView {
                     }
                     break;
                 case UPDATE:
-                    long userId = Long.parseLong(prompt("Input id users: "));
-                    String updateName = prompt("Имя: ");
-                    String updateLastName = prompt("Фамилия: ");
-                    String updatePhone = prompt("Номер телефона: ");
+                    long userId = Long.parseLong(prompt("Input Id: "));
+                    String updateName = prompt("Name: ");
+                    String updateLastName = prompt("Last Name: ");
+                    String updatePhone = prompt("Phone: ");
                     User updatedUser = new User(updateName, updateLastName, updatePhone);
                     userController.userUpdate(userId, updatedUser);
                     break;
