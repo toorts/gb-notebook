@@ -4,6 +4,7 @@ import notebook.controller.UserController;
 import notebook.model.User;
 import notebook.util.Commands;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserView {
@@ -35,6 +36,12 @@ public class UserView {
                         System.out.println();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
+                    }
+                    break;
+                case LIST:
+                    List<User> users = userController.getAllUsers();
+                    for(User user: users) {
+                        System.out.println(user);
                     }
                     break;
             }

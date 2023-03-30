@@ -27,4 +27,12 @@ public class UserController {
 
         throw new RuntimeException("User not found");
     }
+
+    public User findUserById(long id) {
+        return repository.findById(id).orElseThrow(()-> new RuntimeException("User not found."));
+    }
+
+    public List<User> getAllUsers() {
+        return repository.findAll();
+    }
 }
