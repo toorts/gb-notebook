@@ -35,4 +35,13 @@ public class UserController {
     public List<User> getAllUsers() {
         return repository.findAll();
     }
+
+    public boolean userUpdate(long id, User update) {
+        try {
+            repository.update(id, update);
+            return true;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

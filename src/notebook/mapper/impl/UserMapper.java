@@ -6,12 +6,12 @@ import notebook.model.User;
 public class UserMapper implements Mapper<User, String> {
     @Override
     public String toInput(User user) {
-        return String.format("%s,%s,%s,%s", user.getId(), user.getFirstName(), user.getLastName(), user.getPhone());
+        return String.format("%s; %s; %s; %s", user.getId(), user.getFirstName(), user.getLastName(), user.getPhone());
     }
 
     @Override
     public User toOutput(String s) {
-        String[] lines = s.split(",");
+        String[] lines = s.split(";");
         long id;
         if (isDigit(lines[0])) {
             id = Long.parseLong(lines[0]);
